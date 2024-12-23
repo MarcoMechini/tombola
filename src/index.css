@@ -1,0 +1,59 @@
+:root {
+  --body-bg: #17A494;
+  --pickedNum-bg: #F78CA1;
+  --btestrai-bg: #F7A201;
+  --bttermina-bg: #894464;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--body-bg);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+  width: 450px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+li {
+  list-style: none;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+
+.number {
+  background-color: #fff;
+  box-shadow: -2px 2px #C7CCCD;
+}
+
+.picked-num {
+  box-shadow: -2px 2px #CA2424;
+  background-color: var(--pickedNum-bg);
+}
+
+.last-num {
+  background-color: #fff;
+  width: 60px;
+  height: 60px;
+}
+
+.estrai {
+  background-color: var(--btestrai-bg);
+}
+
+.termina {
+  background-color: var(--bttermina-bg);
+}
