@@ -1,24 +1,38 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
   const [count, setCount] = useState(0)
   const [numPicked, setnumPicked] = useState([])
+  const [shuffleArray, setshuffleArray] = useState([])
 
   // metodo per creare un array di 90 elementi
+
   const arrayNum = Array.from({ length: 90 }, (_, i) => i + 1);
-  let randNum = 0
+
+  useEffect(() => {
+    setshuffleArray([...arrayNum].sort(() => 0.5 - Math.random()))
+  }, []);
+
+  let randNum = 0;
+
   const sortNum = () => {
-    randNum = Math.floor(Math.random() * 90) + 1;
-    (numPicked.includes(randNum) ? randNum = Math.floor(Math.random() * 90) + 1 : '')
+    randNum = shuffleArray[shuffleArray.length - 1];
+
+    if (randNum === undefined) {
+      console.log('Numeri finiti');
+      return;
+    }
+
     setCount(randNum)
     setnumPicked((pastNum) => [...pastNum, randNum])
-    console.log(numPicked);
     showNum(numPicked);
+    setshuffleArray((prevShuffle) => prevShuffle.slice(0, -1))
   }
 
   const cleanArray = () => {
-    setnumPicked([])
-    setCount(0)
+    setnumPicked([]);
+    setCount(0);
+    setshuffleArray([...arrayNum].sort(() => 0.5 - Math.random()));
   }
 
   const showNum = (array) => {
