@@ -12,18 +12,37 @@
 }
 
 body {
+  font-family: "Edu TAS Beginner", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 700;
   background-color: var(--body-bg);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
-ul {
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+main h1 {
+  color: #fff;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+.list-num {
   width: 450px;
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
 }
 
-li {
+.elem-li-num {
   list-style: none;
   font-weight: 700;
   border-radius: 50%;
@@ -32,6 +51,17 @@ li {
   align-items: center;
   width: 40px;
   height: 40px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav hr {
+  width: 80%;
 }
 
 .number {
@@ -45,15 +75,28 @@ li {
 }
 
 .last-num {
-  background-color: #fff;
   width: 60px;
   height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  font-weight: 700;
 }
 
 .estrai {
+  border: solid 2px #000;
+  border-radius: 4px;
+  color: #fff;
+  padding: 6px 12px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   background-color: var(--btestrai-bg);
 }
 
 .termina {
+  border: 0;
+  border-radius: 4px;
+  color: #B7C6CD;
+  padding: 6px 12px;
   background-color: var(--bttermina-bg);
 }

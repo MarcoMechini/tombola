@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState('🎄')
   const [numPicked, setnumPicked] = useState([])
   const [shuffleArray, setshuffleArray] = useState([])
 
@@ -31,32 +31,36 @@ function App() {
 
   const cleanArray = () => {
     setnumPicked([]);
-    setCount(0);
+    setCount('🎄');
     setshuffleArray([...arrayNum].sort(() => 0.5 - Math.random()));
   }
 
   const showNum = (array) => {
     return arrayNum.map(i =>
       (array.includes(i)) ?
-        <li key={i} className='picked-num'>{i}</li> :
-        <li key={i} className='number'>{i}</li>
+        <li key={i} className='elem-li-num picked-num'>{i}</li> :
+        <li key={i} className='elem-li-num number'>{i}</li>
     )
   }
 
 
-  //todo sistemare lo stile e far in modo che non escano numeri duplicati
   return (
     <>
-      <ul>
-        {showNum(numPicked)}
-      </ul>
-      <div>
-        <span>Ultimo numero estratto</span>
-        <div className='last-num'>{count}</div>
-        <hr />
-        <button className='estrai' onClick={sortNum}>Estrai</button>
-        <button className='termina' onClick={cleanArray}>Termina gioco</button>
-      </div>
+      <main>
+        <h1>Tombola</h1>
+        <section>
+          <ul className='list-num'>
+            {showNum(numPicked)}
+          </ul>
+          <div className='nav'>
+            <span>Ultimo numero estratto</span>
+            <div className='last-num'>{count}</div>
+            <hr />
+            <button className='estrai' onClick={sortNum}>Estrai</button>
+            <button className='termina' onClick={cleanArray}>Termina gioco</button>
+          </div>
+        </section>
+      </main>
     </>
   )
 }
